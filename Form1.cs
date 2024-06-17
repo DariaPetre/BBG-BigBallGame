@@ -33,9 +33,9 @@ namespace BBG_BigBallGame
         
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            for(int i = 0; i < Engine.balls.Count; i++) 
+            for(int i = 0; i < Engine.list.Count; i++) 
             {   
-                Ball ball = Engine.balls[i];
+                Ball ball = Engine.list[i];
                 if(ball is RegularBall)
                 {   
                     RegularBall.Collision(i);

@@ -57,11 +57,11 @@ namespace BBG_BigBallGame
 
         public static double Distance(int index1, int index2)
         {
-            Ball currentBall = Engine.balls[index1];
+            Ball currentBall = Engine.list[index1];
             int currentBallCenterX = currentBall.Location.X + currentBall.Radius;
             int currentBallCenterY = currentBall.Location.Y + currentBall.Radius;
 
-            Ball otherBall = Engine.balls[index2];
+            Ball otherBall = Engine.list[index2];
             int otherBallCenterX = otherBall.Location.X + otherBall.Radius;
             int otherBallCenterY = otherBall.Location.Y + otherBall.Radius;
 

@@ -22,13 +22,13 @@ namespace BBG_BigBallGame.BallsType
 
         public static void Collision(int index)
         {
-            Ball currentBall = Engine.balls[index];
+            Ball currentBall = Engine.list[index];
            
-            for (int i = 0; i < Engine.balls.Count; i++)
+            for (int i = 0; i < Engine.list.Count; i++)
             {
                 if (i == index) continue;
 
-                Ball otherBall = Engine.balls[i];
+                Ball otherBall = Engine.list[i];
       
                 if (Distance(index, i) < currentBall.Radius + otherBall.Radius)
                 {
@@ -39,7 +39,7 @@ namespace BBG_BigBallGame.BallsType
                              currentBall.Radius += otherBall.Radius;
                              Color averageColor = AverageColor(currentBall.Color, otherBall.Color);
                              currentBall.Color = averageColor;
-                             Engine.balls.RemoveAt(i);
+                             Engine.list.RemoveAt(i);
                             }
                         
                         }
@@ -48,7 +48,7 @@ namespace BBG_BigBallGame.BallsType
                         {
                             otherBall.Radius += currentBall.Radius;
                             Engine.Draw();
-                            Engine.balls.RemoveAt(index);
+                            Engine.list.RemoveAt(index);
                         }
 
 

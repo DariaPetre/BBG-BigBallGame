@@ -28,9 +28,9 @@ namespace BBG_BigBallGame.BallTypes
             while( ! locationIsChecked ) 
             {
                 bool isNewLocation = true;
-                for( int i = 0; i < Engine.balls.Count; i++ ) 
+                for( int i = 0; i < Engine.list.Count; i++ ) 
                 {
-                    if( new Point(x, y)  == Engine.balls[i].Location)
+                    if( new Point(x, y)  == Engine.list[i].Location)
                     {
                         isNewLocation = false;
                         x = rnd.Next(maxX);
@@ -45,13 +45,13 @@ namespace BBG_BigBallGame.BallTypes
         }
         public static void Collision(int index)
         {
-            Ball currentBall = Engine.balls[index];
+            Ball currentBall = Engine.list[index];
 
-            for (int i = 0; i < Engine.balls.Count; i++)
+            for (int i = 0; i < Engine.list.Count; i++)
             {
                 if (i == index) continue;
 
-                Ball otherBall = Engine.balls[i];
+                Ball otherBall = Engine.list[i];
 
                 if (Distance(index, i) < currentBall.Radius + otherBall.Radius)
                 {

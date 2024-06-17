@@ -13,19 +13,19 @@ namespace BBG_BigBallGame
     {   
         public static Bitmap bitmap;
         public static int time;
-        public static List<Ball> balls;
+        public static List<Ball> list;
 
         public static void Initialize()
         {  
-            balls = new List<Ball>();
+            list = new List<Ball>();
 
             for(int i = 0; i < 12; i++) 
-               balls.Add(new RegularBall());
+               list.Add(new RegularBall());
             
-            balls.Add(new MonsterBall());
+            list.Add(new MonsterBall());
             
-            balls.Add(new RepellentBall());
-            balls.Add(new RepellentBall());
+            list.Add(new RepellentBall());
+            list.Add(new RepellentBall());
         }
 
         public static void Draw()
@@ -37,7 +37,7 @@ namespace BBG_BigBallGame
 
             using (Graphics graphics = Graphics.FromImage(bitmap))
             {   
-                foreach (Ball ball in balls)
+                foreach (Ball ball in list)
                     graphics.FillEllipse(new SolidBrush(ball.Color), ball.Location.X, ball.Location.Y, 2 * ball.Radius, 2 * ball.Radius);
             }
             Form1.Instance.pictureBox1.Image = bitmap;
